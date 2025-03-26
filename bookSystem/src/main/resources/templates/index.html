@@ -1,48 +1,50 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+	
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=driver-width, initial-scale=1.0">
-<title>온라인도서관</title>
 
+<th:block layoutfragment="css"></th:block>
+	<link rel="stylesheet" th:href="@{./css/index.css}">
 
-<link rel="stylesheet" href="./css/default.css">
-</head>
-<body>
+<th:block layout:fragment="script"></th:block>
+	<script>
+		function send(){
+			let fm = document.getElementById("loginFm");
+			fm.submit();
+		}
+	</script>
+	
+</head>	
 
-	<div id="wrap">
-		<div id="header">
-		 	<ul id="menuList">
-		 		<li class="menu"><a href="/bookSearch">도서검색</a></li>
-		 		<li class="menu"><a href="/loans">대출</a></li>
-		 		<li class="menu"><a href="/return">반납</a></li>
-		 		<li class="menu"><a href="/bookEnroll">도서등록</a></li>
-		 		<li class="menu"><a href="/goldLibrary">황금도서관</a></li>
-		 	</ul>
-		</div>
-	</div>
+	<div layout:fragment="main"	id="main">
+		
 	<div id="loginWrap">
 		<div class ="login-box">
 			<div class="login-area">
-				<form method="post" action="/signIn">
+				<form name="loginFm" id="loginFm" th:object="${memberDTO}" method="post" action="/signIn">
 					<div class="input-field">
-						<label>ID</label>
-						<input type="text">
+						<label th:for="email">ID</label>
+						<input type="text" th:field="*{email}">
 					</div>
 					<div class="input-field">
-						<label>PassWord</label>
-						<input type="password">
+						<label th:for="password">PassWord</label>
+						<input type="password" th:field="*{password}">
 					</div>
-					<div id="loginBtbox">
-						<a href="" class="login-bt">LOGIN</a>
+					
+					<p th:if="${fail}" style="color: red; font-size:13px;">
+					아이디 또는 비밀번호가 잘못되었습니다.
+					</p>
+					
+					<div id="loginBtBox">
+						<a href="javascript:send();" class="login-bt">LOGIN</a>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-	
-	<!-- header 끝 -->
+</div>
 	
 		
-</body>
 </html>

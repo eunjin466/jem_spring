@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=driver-width, initial-scale=1.0">
+<title>온라인 도서관</title>
+
+<link rel="stylesheet" href="./css/default.css">
+
+<!--fragment 사이트 조각조각 내는것 "css"라는 조각, "script"라는 조각을 내주고 조립시켜주는것 -->
+<th:block layoutfragment="css"></th:block>
+<th:block layout:fragment="script"></th:block>
+</head>
+<body>
+	
+	<div id="wrap">
+		<th:block th:replace="layout/header :: head"></th:block>
+		
+		<th:block layout:fragment="main"></th:block>
+		
+		<th:block th:replace="layout/footer :: foot"></th:block>
+	</div>
+
+
+
+</body>
+</html>
