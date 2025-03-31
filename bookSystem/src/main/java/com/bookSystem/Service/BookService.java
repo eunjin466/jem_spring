@@ -14,15 +14,9 @@ import com.bookSystem.Repository.BookRepository;
 
 @Service
 public class BookService {
-
-    private final AdminController adminController;
 	
 	@Autowired
 	private BookRepository bookRepository;
-
-    BookService(AdminController adminController) {
-        this.adminController = adminController;
-    }
 
 	public void bookSave(BookWriteDto bookWriteDto ) {
 		Book book = Book.of(bookWriteDto);
