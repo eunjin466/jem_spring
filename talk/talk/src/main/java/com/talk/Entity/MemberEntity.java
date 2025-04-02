@@ -19,6 +19,13 @@ public class MemberEntity {
 	public static MemberEntity from (MemberSignUpDto memberSignUpDto) {
 		MemberEntity memberEntity = new MemberEntity();
 		
+		memberEntity.setMemberId(memberSignUpDto.getMemberId());
+		memberEntity.setPassword(memberSignUpDto.getPassword());
+		memberEntity.setName(memberSignUpDto.getName());
+		memberEntity.setEmail(memberSignUpDto.getEmail());
+		memberEntity.setTel(memberSignUpDto.getTel());
+		
+		
 		
 		
 		
