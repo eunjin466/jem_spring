@@ -5,7 +5,11 @@
   
   
   <mapper namespace="com.talk.Reporitory.CommentRepository">
-  
+  	<select id="findByBoardIdOrderByDesc" parameterType="int" resultType="CommentEntity">
+  	
+  		select * from comment where board_id = #{id} order by id desc  
+  	
+  	</select>
   
   
   </mapper>

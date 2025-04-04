@@ -14,17 +14,17 @@ public class BoardDto {
 	private String fileName;
 	
 	
-	public static BoardDto to (BoardEntity boardEntity) {
-		BoardDto boardDto = new BoardDto();
+	public static BoardEntity to (BoardDto boardDto) {
+		BoardEntity boardEntity = new BoardEntity();
 		
-		boardDto.setId(boardEntity.getId());
-		boardDto.setTitle(boardEntity.getTitle());
-		boardDto.setContent(boardEntity.getContent());
-		boardDto.setFileName(boardEntity.getFileName());
+		boardEntity.setId(boardDto.getId());
+		boardEntity.setTitle(boardDto.getTitle());
+		boardEntity.setContent(boardDto.getContent());
+		boardEntity.setFileName(boardDto.getFileName());
 		
 		
 		
-		return boardDto;
+		return boardEntity;
 	}
 	public static BoardEntity from (BoardDto boardDto) {
 		BoardEntity boardEntity = new BoardEntity();

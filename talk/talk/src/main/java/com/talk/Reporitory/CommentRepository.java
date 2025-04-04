@@ -16,5 +16,5 @@ public interface CommentRepository {
 	public int delete (int id);
 	
 	// 댓글 상세보기 목록 가져오기 
-	public List<CommentEntity> findByBoardIdOrderByDesc(); 
+	public List<CommentEntity> findByBoardIdOrderByDesc(int id); 
 }
